@@ -1,0 +1,127 @@
+body.active .dropdown-menu li a:hover {
+    background-color: #3b404b !important;
+}
+.dropdown-menu li {
+    margin: 3px 0;
+}
+.testi-pagination {
+    position: static !important;
+}
+.cart-table .shop-cart-product .shop-product-cart-img {
+    background: var(--theme-color2);
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+.cart-table .shop-cart-product .shop-product-cart-img img {
+    max-width: 60px;
+}
+
+.video-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.video-modal-content {
+    position: relative;
+    width: min(900px, 95vw);
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    z-index: 2;
+    color: #fff;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.gallery .thumbnails img.active {
+    background: #c3e19e;
+    outline: 2px solid #c3e19e;
+}
+.close-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.one_page_nav ul li a {
+    cursor: pointer;
+}
+.gallery .main-image {
+    height: 635px;
+}
+@media (max-width: 1199px) {
+    .gallery .main-image {
+        height: 535px;
+    }
+}
+@media (max-width: 767) {
+    .gallery .main-image {
+        height: 435px;
+    }
+}
+.gallery .main-image figure,
+.gallery .main-image figure > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.gallery .main-image img {
+    display: flex;
+}
+.gallery .thumbnails button {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--border-color);
+    background: var(--theme-color2);
+    border-radius: 6px;
+}
+@media (max-width: 580px) {
+    .gallery .thumbnails button {
+        height: 80px;
+        flex-basis: 22%;
+    }
+    .gallery .thumbnails {
+        justify-content: center;
+    }
+}
+@media (max-width: 1199px) {
+    .header-main .btn-style1 {
+        font-size: 15px;
+    }
+}
+.gallery .thumbnails button.active {
+    background: #c3e19e;
+    border-color: #c3e19e;
+}
+.gallery .thumbnails img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border: none;
+    background: transparent;
+}

@@ -1,0 +1,40 @@
+{
+  "name": "division-flow-nextjs",
+  "version": "1.0.0",
+  "description": "Division Flow — SaaS & tech startup Next.js template (Bootstrap, portfolio, blog, shop demos).",
+  "author": "Division Flow",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "aos": "^2.3.4",
+    "bootstrap": "^5.3.8",
+    "imagesloaded": "^5.0.0",
+    "isotope-layout": "^3.0.6",
+    "next": "^16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-inner-image-zoom": "^4.0.1",
+    "react-player": "^3.4.0",
+    "react-scroll": "^1.9.3",
+    "sass": "^1.99.0",
+    "sonner": "^2.0.7",
+    "swiper": "^12.1.3"
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.7",
+    "@types/imagesloaded": "^4.1.7",
+    "@types/isotope-layout": "^3.0.15",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-scroll": "^1.8.10",
+    "eslint": "^9",
+    "eslint-config-next": "^16.2.6",
+    "typescript": "^5"
+  }
+}
