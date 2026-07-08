@@ -1,23 +1,53 @@
 "use client";
 
 import Image from "next/image";
-import type { FormEvent } from "react";
-import { toast } from "sonner";
+import { useEffect, useState, type FormEvent } from "react";
 import { homeHeroData } from "@/data/homeHero";
+
+type DemoRequestStatus = "idle" | "loading" | "success" | "error";
 
 export default function Hero() {
   const { subTitle, title, description, form } = homeHeroData;
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<DemoRequestStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
-  // TODO: Replace this handler with your own email signup integration (e.g. Mailchimp, ConvertKit, or a server action).
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+  useEffect(() => {
+    if (status !== "error") return;
+    const timeoutId = setTimeout(() => {
+      setStatus("idle");
+      setErrorMessage("");
+    }, 5000);
+    return () => clearTimeout(timeoutId);
+  }, [status]);
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const email = (
-      e.currentTarget.elements.namedItem("email") as HTMLInputElement
-    ).value;
-    toast.success("Thanks for signing up!", {
-      description: `We'll be in touch at ${email}.`,
-    });
-    e.currentTarget.reset();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        setStatus("error");
+        setErrorMessage(
+          response.status === 400
+            ? "Informe um e-mail válido."
+            : "Algo deu errado. Tente novamente em instantes.",
+        );
+        return;
+      }
+
+      setStatus("success");
+    } catch {
+      setStatus("error");
+      setErrorMessage("Algo deu errado. Tente novamente em instantes.");
+    }
   }
 
   return (
@@ -53,26 +83,46 @@ export default function Hero() {
               data-aos-delay={400}
             >
               <div className="form-group">
-                <input
-                  type="email"
-                  id="hero-email"
-                  name="email"
-                  placeholder={form.placeholder}
-                  aria-label="Email address"
-                  required={true}
-                />
-                <button type="submit" className="btn-style1">
-                  {form.buttonText}
-                  <span>
-                    <Image
-                      src={form.buttonIcon.src}
-                      alt={form.buttonIcon.alt}
-                      width={form.buttonIcon.width}
-                      height={form.buttonIcon.height}
+                {status === "success" ? (
+                  <p className="mb-0">
+                    Solicitação recebida! Entraremos em contato em breve.
+                  </p>
+                ) : (
+                  <>
+                    <input
+                      type="email"
+                      id="hero-email"
+                      name="email"
+                      placeholder={form.placeholder}
+                      aria-label="Email address"
+                      required={true}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={status === "loading"}
                     />
-                  </span>
-                </button>
+                    <button
+                      type="submit"
+                      className="btn-style1"
+                      disabled={status === "loading"}
+                    >
+                      {status === "loading" ? "Enviando..." : form.buttonText}
+                      <span>
+                        <Image
+                          src={form.buttonIcon.src}
+                          alt={form.buttonIcon.alt}
+                          width={form.buttonIcon.width}
+                          height={form.buttonIcon.height}
+                        />
+                      </span>
+                    </button>
+                  </>
+                )}
               </div>
+              {status === "error" && (
+                <p style={{ color: "red", fontSize: "0.85rem" }} className="mt-2 mb-0">
+                  {errorMessage}
+                </p>
+              )}
             </form>
             {/* End form */}
           </div>

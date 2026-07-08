@@ -62,7 +62,9 @@ export const footerColumns: FooterColumn[] = [
     title: "Empresa",
     delay: 300,
     links: [
-      { label: "Política de Privacidade", href: "/" },
+      { label: "Privacidade", href: "/privacy" },
+      { label: "Termos de Uso", href: "/terms" },
+      { label: "Reembolso", href: "/refund" },
     ],
   },
   {
@@ -77,9 +79,6 @@ export const footerColumns: FooterColumn[] = [
   {
     title: "Links Úteis",
     delay: 500,
-    links: [
-      { label: "Minha Conta", href: "/" },
-      { label: "Política de Privacidade", href: "/" },
-    ],
+    links: [{ label: "Minha Conta", href: "/" }],
   },
 ];

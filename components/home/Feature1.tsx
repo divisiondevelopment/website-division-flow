@@ -4,8 +4,7 @@ import { feature1Data } from "@/data/feature1";
 const iconImgStyle = { width: "auto", height: "auto" } as const;
 
 export default function Feature1() {
-  const { leftImages, centerImage, content, featuresList, rightImages } =
-    feature1Data;
+  const { leftImages, content, featuresList, rightImages } = feature1Data;
 
   return (
     <>
@@ -43,29 +42,6 @@ export default function Feature1() {
         </div>
         <div className="col-lg-6">
           <div className="feature-card">
-            <div
-              className="feature-img-one"
-              data-aos="zoom-in"
-              data-aos-duration={900}
-              data-aos-delay={200}
-            >
-              <Image
-                src={centerImage.light}
-                alt={centerImage.alt}
-                width={centerImage.width}
-                height={centerImage.height}
-                className="light"
-                style={{ width: "100%", height: "auto" }}
-              />
-              <Image
-                src={centerImage.dark}
-                alt={`${centerImage.alt} dark mode`}
-                width={centerImage.width}
-                height={centerImage.height}
-                className="dark"
-                style={{ width: "100%", height: "auto" }}
-              />
-            </div>
             <div
               className="feature-info"
               data-aos="fade-up"

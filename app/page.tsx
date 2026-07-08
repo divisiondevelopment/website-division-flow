@@ -6,7 +6,6 @@ import MobileMenu from "@/components/header/MobileMenu";
 import CallToAction from "@/components/common/CallToAction";
 import AnimImage from "@/components/common/AnimImage";
 import Hero from "@/components/home/Hero";
-import Feature1 from "@/components/home/Feature1";
 import StartedSteps from "@/components/home/StartedSteps";
 import Solution from "@/components/home/Solution";
 import Solution2 from "@/components/home/Solution2";
@@ -37,15 +36,6 @@ export default function Page() {
         <Hero />
         {/* End hero-sec */}
       </section>
-
-
-      {/* feature-sec */}
-      <section id="features" className="feature-sec space">
-        <div className="carousel-container">
-          <Feature1 />
-        </div>
-      </section>
-      {/* End feature-sec */}
 
       {/* choose-us-sec */}
       <section className="choose-us-sec space">

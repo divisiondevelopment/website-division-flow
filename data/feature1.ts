@@ -17,13 +17,6 @@ export const feature1Data = {
       height: 400,
     },
   ],
-  centerImage: {
-    light: "/assets/images/feature/feature-main.png",
-    dark: "/assets/images/feature/feature-main.png",
-    alt: "Dashboard de analytics de conversas e pipeline",
-    width: 600,
-    height: 600,
-  },
   content: [
     {
       id: 1,
