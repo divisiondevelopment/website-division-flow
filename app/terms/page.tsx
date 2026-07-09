@@ -156,7 +156,7 @@ const Page = () => {
 
                 <h2 className="mt-5">13. Contato</h2>
                 <p>
-                  E-mail: contato@divisionflow.com
+                  E-mail: divisiondevservices@gmail.com
                   <br />
                   Site: divisionflow.com
                 </p>

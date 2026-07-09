@@ -6,7 +6,7 @@ export const homeSolution2Data = {
   },
   content: {
     subtitle: "Resultados de Vendas",
-    title: "Visualize Seu Desempenho Anual de Vendas com IA",
+    title: "Visualize Seu Desempenho de Vendas em Tempo Real",
     description:
       "Identifique tendências de performance, descubra os principais motores de receita e tome decisões baseadas em dados para escalar mais rápido. Sem planilhas, sem achismos — apenas insights reais que geram resultados reais.",
     features: [

@@ -10,7 +10,6 @@ export default function Footer() {
 
   return (
     <>
-      {/* footer-style1 */}
       <footer className="footer-style1">
         <div className="widget-area">
           <div className="carousel-container">
@@ -30,22 +29,6 @@ export default function Footer() {
                     Plataforma SaaS desenvolvida para simplificar seu fluxo de
                     trabalho e automatizar tarefas do dia a dia.
                   </p>
-
-                  <ul className="social-links">
-                    {socialLinks.map((item) => (
-                      <li key={item.alt}>
-                        <DataLink href={item.href} title="">
-                          <Image
-                            src={item.icon}
-                            alt={item.alt}
-                            width={item.width}
-                            height={item.height}
-                            style={iconImgStyle}
-                          />
-                        </DataLink>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
               </div>
               <div className="col-lg-8">
@@ -81,14 +64,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        {/* End widget area */}
 
         <div className="footer-content">
           <span className="footer-brand-bg" aria-hidden="true">
             DIVISION FLOW
           </span>
         </div>
-        {/* End footer content */}
 
         <div className="footer-box">
           <div className="carousel-container">
@@ -105,9 +86,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        {/* End footer box */}
       </footer>
-      {/* End footer-style1 */}
     </>
   );
 }

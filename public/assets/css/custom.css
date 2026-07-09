@@ -125,3 +125,30 @@ body.active .dropdown-menu li a:hover {
     border: none;
     background: transparent;
 }
+
+.hero-cta-btn {
+    height: 42px;
+    line-height: 42px;
+    background-color: var(--title-color);
+    color: var(--white-color);
+    border-color: transparent;
+}
+.hero-cta-btn:hover {
+    background-color: var(--white-color);
+    color: var(--title-color);
+}
+.hero-cta-btn:hover span {
+    background-color: var(--title-color);
+}
+.hero-cta-btn:hover span img {
+    filter: invert(1);
+}
+.hero-cta-btn span {
+    height: 30px;
+    width: 30px;
+    background-color: var(--white-color);
+}
+.hero-cta-btn span img {
+    filter: invert(0);
+    height: 14px;
+}

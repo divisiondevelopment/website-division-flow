@@ -9,7 +9,7 @@ export const comingSoonContent = {
   lead: "Em Breve",
   title: "Algo Incrível Está a Caminho",
   description:
-    "Estamos trabalhando nos bastidores para trazer a você uma experiência totalmente nova no CRM com IA.",
+    "Estamos trabalhando nos bastidores para trazer a você uma experiência totalmente nova no CRM.",
   countdownTargetIso: "2028-01-01T00:00:00",
   notify: {
     emailPlaceholder: "Digite seu e-mail",

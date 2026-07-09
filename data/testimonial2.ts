@@ -13,7 +13,7 @@ export const homeTestimonialSlides: HomeTestimonialSlide[] = [
   {
     id: 1,
     title: '“O Division Flow transformou como gerenciamos nossas vendas.”',
-    text: '“Reduzimos tarefas manuais em 60% e melhoramos a produtividade do time inteiro. A automação com IA mudou tudo!”',
+    text: '“Reduzimos tarefas manuais em 60% e melhoramos a produtividade do time inteiro. A automação mudou tudo!”',
     authorImage: "/assets/images/author/auther1-1.png",
     authorAlt: "Foto de Daniel Rivera",
     name: "Daniel Rivera",
@@ -52,8 +52,8 @@ export const homeTestimonialSlides: HomeTestimonialSlide[] = [
   },
   {
     id: 5,
-    title: '“O CRM com IA que nossa equipe precisava.”',
-    text: '“Reduzimos tarefas manuais em 60% e melhoramos a produtividade do time inteiro. A automação com IA mudou tudo!”',
+    title: '“O CRM que nossa equipe precisava.”',
+    text: '“Reduzimos tarefas manuais em 60% e melhoramos a produtividade do time inteiro. A automação mudou tudo!”',
     authorImage: "/assets/images/author/auther1-5.png",
     authorAlt: "Foto de Daniel Rivera",
     name: "Daniel Rivera",
@@ -73,7 +73,7 @@ export const homeTestimonialSlides: HomeTestimonialSlide[] = [
   {
     id: 7,
     title: '“Division Flow mudou nossa forma de vender.”',
-    text: '“Reduzimos tarefas manuais em 60% e melhoramos a produtividade do time inteiro. A automação com IA mudou tudo!”',
+    text: '“Reduzimos tarefas manuais em 60% e melhoramos a produtividade do time inteiro. A automação mudou tudo!”',
     authorImage: "/assets/images/author/auther1-1.png",
     authorAlt: "Foto de Daniel Rivera",
     name: "Daniel Rivera",

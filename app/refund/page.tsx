@@ -26,7 +26,7 @@ const Page = () => {
                   dias a partir da data da primeira cobrança, sem necessidade
                   de justificativa, conforme o direito de arrependimento
                   previsto no art. 49 do Código de Defesa do Consumidor.
-                  Solicitações pelo e-mail contato@divisionflow.com.
+                  Solicitações pelo e-mail divisiondevservices@gmail.com.
                 </p>
 
                 <h2 className="mt-5">2. Fora do período de garantia</h2>
@@ -88,7 +88,7 @@ const Page = () => {
 
                 <h2 className="mt-5">6. Contato</h2>
                 <p>
-                  E-mail: contato@divisionflow.com
+                  E-mail: divisiondevservices@gmail.com
                   <br />
                   Site: divisionflow.com
                 </p>

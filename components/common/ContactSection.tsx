@@ -43,11 +43,11 @@ export default function ContactSection() {
                   Precisa de Ajuda?
                 </h3>
                 <DataLink
-                  href="mailto:dflowsupport@gmail.com"
+                  href="mailto:divisiondevservices@gmail.com"
                   title=""
                   className="nmbr"
                 >
-                  dflowsupport@gmail.com
+                  divisiondevservices@gmail.com
                 </DataLink>
                 <DataLink
                   href="tel:+18003308885544"

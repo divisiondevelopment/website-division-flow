@@ -2,7 +2,7 @@ const onepageHeaderData = {
   logo: {
     href: "/",
     title: "Home",
-    alt: "Division Flow — CRM com IA",
+    alt: "Division Flow — CRM para Equipes de Alta Performance",
     lightSrc: "/assets/images/logo.svg",
     darkSrc: "/assets/images/logo-dark.svg",
     width: 140,

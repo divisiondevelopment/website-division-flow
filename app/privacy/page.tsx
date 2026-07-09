@@ -119,7 +119,7 @@ const Page = () => {
                   tratamento, acessar seus dados, corrigir dados
                   desatualizados, solicitar exclusão, revogar consentimento
                   para marketing e solicitar portabilidade. Contato:
-                  contato@divisionflow.com. Respondemos em até 15 dias
+                  divisiondevservices@gmail.com. Respondemos em até 15 dias
                   corridos.
                 </p>
 
@@ -139,7 +139,7 @@ const Page = () => {
 
                 <h2 className="mt-5">9. Contato</h2>
                 <p>
-                  E-mail: contato@divisionflow.com
+                  E-mail: divisiondevservices@gmail.com
                   <br />
                   Site: divisionflow.com
                 </p>

@@ -2396,7 +2396,7 @@ h6 {
 .hero-sec {
   position: relative;
   padding: 210px 0 0;
-  min-height: 100vh;
+  min-height: 80vh;
   /* Large devices */
 }
 @media (max-width: 1199px) {

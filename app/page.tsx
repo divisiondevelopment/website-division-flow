@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: {
     absolute: SITE_TITLE_DEFAULT,
   },
-  description: `Bem-vindo ao ${SITE_NAME}. CRM com inteligência artificial para equipes de vendas de alta performance.`,
+  description: `Bem-vindo ao ${SITE_NAME}. CRM completo para equipes de vendas de alta performance.`,
 };
 
 export default function Page() {

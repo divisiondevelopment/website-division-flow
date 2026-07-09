@@ -27,7 +27,7 @@ export const startedStepsData: StartedStepItem[] = [
     alt: "Ícone de Conexão e Automação",
     title: "Conecte e Automatize",
     description:
-      "Integre suas ferramentas favoritas, importe seus contatos e configure fluxos de automação com IA para economizar tempo desde o primeiro dia.",
+      "Integre suas ferramentas favoritas, importe seus contatos e configure fluxos de automação para economizar tempo desde o primeiro dia.",
   },
   {
     id: 3,

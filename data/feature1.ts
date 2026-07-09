@@ -4,7 +4,7 @@ export const feature1Data = {
       id: 1,
       light: "/assets/images/feature/feature-2.png",
       dark: "/assets/images/feature/feature-2.png",
-      alt: "Interface do assistente de IA no CRM",
+      alt: "Interface de comunicação centralizada no CRM",
       width: 400,
       height: 400,
     },
@@ -12,7 +12,7 @@ export const feature1Data = {
       id: 2,
       light: "/assets/images/feature/feature-3.png",
       dark: "/assets/images/feature/feature-3.png",
-      alt: "Fluxo de automação de vendas com IA",
+      alt: "Fluxo de automação de vendas",
       width: 400,
       height: 400,
     },
@@ -20,7 +20,7 @@ export const feature1Data = {
   content: [
     {
       id: 1,
-      title: "Conversas Inteligentes com IA",
+      title: "Comunicação Centralizada",
       description:
         "Responda leads com naturalidade usando processamento de linguagem avançado. Atenda clientes 24/7 com suporte personalizado e automatizado.",
     },

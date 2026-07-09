@@ -8,7 +8,6 @@ import {
   type PricingPlan,
   pricingAssets,
   pricingPlans,
-  pricingTabs,
 } from "@/data/pricing";
 
 const AOS_DURATION = 900;
@@ -125,41 +124,6 @@ export default function Pricing() {
 
   return (
     <>
-      <div className="sec-title white">
-        <ul
-          className="nav nav-tabs"
-          role="tablist"
-          data-aos="fade-up"
-          data-aos-duration={AOS_DURATION}
-          data-aos-delay={400}
-        >
-          {pricingTabs.map((tab) => {
-            const selected = billing === tab.id;
-            return (
-              <li key={tab.id} className="nav-item" role="presentation">
-                <button
-                  type="button"
-                  className={`nav-link${selected ? " active" : ""}`}
-                  id={`pricing-tab-${tab.id}`}
-                  role="tab"
-                  aria-selected={selected}
-                  aria-controls={PRICING_PANEL_ID}
-                  onClick={() => onTabClick(tab.id)}
-                >
-                  {tab.label}
-                  {tab.saveBadge ? (
-                    <>
-                      {" "}
-                      - <span>{tab.saveBadge}</span>
-                    </>
-                  ) : null}
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-
       <div className="tab-content">
         <div
           className="tab-pane fade show active"

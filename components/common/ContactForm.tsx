@@ -1,7 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState, type FormEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ChangeEvent,
+  type FormEvent,
+} from "react";
 import {
   contactFormCopy,
   contactFormFields,
@@ -10,10 +17,26 @@ import {
 
 const AOS_DURATION = 900;
 
+function formatPhoneNumber(digits: string): string {
+  const trimmed = digits.slice(0, 11);
+
+  if (trimmed.length === 0) return "";
+  if (trimmed.length <= 2) return `(${trimmed}`;
+  if (trimmed.length <= 7) {
+    return `(${trimmed.slice(0, 2)}) ${trimmed.slice(2)}`;
+  }
+  return `(${trimmed.slice(0, 2)}) ${trimmed.slice(2, 7)}-${trimmed.slice(7)}`;
+}
+
 async function submitContactForm(data: FormData): Promise<void> {
-  void data;
-  // Wire to e.g. `await fetch("/api/contact", { method: "POST", body: data })`
-  await new Promise((r) => setTimeout(r, 700));
+  const response = await fetch("/api/contact", {
+    method: "POST",
+    body: data,
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to submit contact form");
+  }
 }
 
 function FormField({ field }: { field: ContactFormField }) {
@@ -56,7 +79,13 @@ export default function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
   >("idle");
+  const [phone, setPhone] = useState("");
   const successTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handlePhoneChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const digitsOnly = e.target.value.replace(/\D/g, "").slice(0, 11);
+    setPhone(formatPhoneNumber(digitsOnly));
+  }, []);
 
   useEffect(() => {
     return () => {
@@ -79,6 +108,7 @@ export default function ContactForm() {
       await submitContactForm(new FormData(form));
       setStatus("success");
       form.reset();
+      setPhone("");
       if (successTimeoutRef.current) clearTimeout(successTimeoutRef.current);
       successTimeoutRef.current = setTimeout(() => {
         setStatus("idle");
@@ -103,6 +133,13 @@ export default function ContactForm() {
       method="post"
       onSubmit={handleSubmit}
     >
+      <input
+        type="text"
+        name="website"
+        style={{ display: "none" }}
+        aria-hidden="true"
+      />
+
       <h2 className="title">{contactFormCopy.title}</h2>
 
       <div
@@ -120,9 +157,30 @@ export default function ContactForm() {
       </div>
 
       <div className="row">
-        {contactFormFields.map((field) => (
-          <FormField key={field.id} field={field} />
-        ))}
+        {contactFormFields.map((field) =>
+          field.name === "phone" ? (
+            <div key={field.id} className={field.colClass}>
+              <div className="form-group">
+                <label className="visually-hidden" htmlFor={field.id}>
+                  {field.label}
+                </label>
+                <input
+                  id={field.id}
+                  name={field.name}
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  required={field.required}
+                  autoComplete={field.autoComplete}
+                  inputMode="tel"
+                  value={phone}
+                  onChange={handlePhoneChange}
+                />
+              </div>
+            </div>
+          ) : (
+            <FormField key={field.id} field={field} />
+          ),
+        )}
         <div className="col-lg-8">
           <div className="form-group mb-0">
             <button

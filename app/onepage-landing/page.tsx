@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: {
     absolute: SITE_TITLE_DEFAULT,
   },
-  description: `Welcome to ${SITE_NAME}. CRM com inteligência artificial para equipes de vendas de alta performance.`,
+  description: `Welcome to ${SITE_NAME}. CRM completo para equipes de vendas de alta performance.`,
 };
 
 const iconImgStyle = { width: "auto", height: "auto" } as const;
@@ -79,7 +79,7 @@ export default function Page() {
               data-aos-duration={900}
               data-aos-delay={300}
             >
-              Recursos do CRM com IA
+              Recursos do CRM
             </span>
             <h2
               className="title"

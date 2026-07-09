@@ -28,11 +28,6 @@ export type PricingPlan = {
   aosDelay: number;
 };
 
-export const pricingTabs: PricingTab[] = [
-  { id: "monthly", label: "Mensal" },
-  { id: "yearly", label: "Anual", saveBadge: "Economize 23%" },
-];
-
 export const pricingAssets = {
   checkIcon: "/assets/images/icon/check1-2.svg",
   checkAlt: "Incluso",
@@ -50,15 +45,16 @@ export const pricingPlans: PricingPlan[] = [
     iconAlt: "Ícone do Plano Starter",
     titleTag: "h2",
     priceTag: "h3",
-    title: "Starter",
+    title: "Flow",
     description:
       "Ideal para profissionais autônomos e pequenas equipes que estão começando no CRM.",
-    monthly: { amount: "R$39,90", periodNote: "/mês" },
-    yearly: { amount: "R$30,70", periodNote: "/mês cobrado anualmente" },
+    monthly: { amount: "R$24,90", periodNote: "/mês" },
+    yearly: { amount: "R$24,90", periodNote: "/mês" },
     ctaHref: "#",
     ctaLabel: "Teste Grátis por 14 Dias",
     features: [
-      "Até 1 usuário",
+      "1 usuário incluso",
+      "5 GB de armazenamento",
       "Acesso básico ao dashboard",
       "Integrações limitadas",
       "Suporte via comunidade",
@@ -73,15 +69,16 @@ export const pricingPlans: PricingPlan[] = [
     iconAlt: "Ícone do Plano Pro",
     titleTag: "h3",
     priceTag: "h4",
-    title: "Pro",
+    title: "Flow Pro",
     description: "Para equipes em crescimento que precisam de mais flexibilidade e automação.",
-    monthly: { amount: "R$69,90", periodNote: "/mês" },
-    yearly: { amount: "R$53,82", periodNote: "/mês cobrado anualmente" },
+    monthly: { amount: "R$74,90", periodNote: "/mês" },
+    yearly: { amount: "R$74,90", periodNote: "/mês" },
     ctaHref: "#",
     ctaLabel: "Teste Grátis por 10 Dias",
     features: [
-      "Até 5 usuários",
-      "Dashboard avançado com IA",
+      "Até 5 usuários inclusos",
+      "20 GB de armazenamento",
+      "Dashboard avançado",
       "Integrações completas",
       "Suporte prioritário",
       "Automação de follow-ups",

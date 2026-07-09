@@ -2,13 +2,13 @@ export const serviceCards = [
   {
     id: 1,
     icon: "/assets/images/icon/ser1-1.svg",
-    alt: "Ícone de automação de vendas com IA",
+    alt: "Ícone de automação de vendas",
     width: 50,
     height: 50,
-    title: "Automação de Vendas com IA",
+    title: "Automação de Vendas",
     href: "#",
     description:
-      "Automatize tarefas repetitivas e deixe a IA priorizar os leads com maior chance de conversão para sua equipe.",
+      "Automatize tarefas repetitivas e priorize os leads com maior chance de conversão para sua equipe.",
     aos: "fade-up",
     delay: 200,
   },

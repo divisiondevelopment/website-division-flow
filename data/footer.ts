@@ -71,7 +71,7 @@ export const footerColumns: FooterColumn[] = [
     title: "Recursos",
     delay: 400,
     links: [
-      { label: "CRM com IA", href: "/#features" },
+      { label: "Funcionalidades", href: "/#features" },
       { label: "Automações", href: "/#features" },
       { label: "Dashboards", href: "/#features" },
     ],

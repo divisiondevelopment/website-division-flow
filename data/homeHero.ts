@@ -29,10 +29,10 @@ export type HomeHeroData = {
 };
 
 export const homeHeroData: HomeHeroData = {
-  subTitle: "CRM com IA para Vendas que Convertem",
-  title: "Feche Mais Negócios com Inteligência Artificial",
+  subTitle: "CRM para Vendas que Convertem",
+  title: "Feche Mais Negócios com Total Controle",
   description:
-    "O CRM completo com IA que centraliza seus contatos, automatiza follow-ups e entrega insights em tempo real para sua equipe vender mais.",
+    "O CRM completo que centraliza seus contatos, automatiza follow-ups e entrega visibilidade total do seu pipeline.",
   form: {
     placeholder: "Digite seu e-mail corporativo",
     buttonText: "Solicitar uma Demo",
