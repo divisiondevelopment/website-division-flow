@@ -96,7 +96,6 @@ export default function Hero() {
               </span>
             </a>
 
-            {/* Formulário de contato removido temporariamente, manter para uso futuro
             <form
               className="hero-form"
               onSubmit={onSubmit}
