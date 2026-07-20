@@ -33,9 +33,6 @@ export const pricingAssets = {
   checkAlt: "Incluso",
   arrowIcon: "/assets/images/icon/arrow.svg",
   arrowAlt: "Ícone de seta",
-  creditIcon: "/assets/images/icon/credit.svg",
-  creditAlt: "Ícone sem necessidade de cartão de crédito",
-  creditText: "Sem necessidade de cartão de crédito",
 };
 
 export const pricingPlans: PricingPlan[] = [
@@ -51,7 +48,7 @@ export const pricingPlans: PricingPlan[] = [
     monthly: { amount: "R$24,90", periodNote: "/mês" },
     yearly: { amount: "R$24,90", periodNote: "/mês" },
     ctaHref: "#",
-    ctaLabel: "Teste Grátis por 14 Dias",
+    ctaLabel: "Começar Agora",
     features: [
       "1 usuário incluso",
       "5 GB de armazenamento",
@@ -74,7 +71,7 @@ export const pricingPlans: PricingPlan[] = [
     monthly: { amount: "R$74,90", periodNote: "/mês" },
     yearly: { amount: "R$74,90", periodNote: "/mês" },
     ctaHref: "#",
-    ctaLabel: "Teste Grátis por 10 Dias",
+    ctaLabel: "Começar Agora",
     features: [
       "Até 5 usuários inclusos",
       "20 GB de armazenamento",

@@ -3,7 +3,6 @@ import Link from "next/link";
 import DataLink from "@/components/common/DataLink";
 import HeaderNav from "./HeaderNav";
 import HamburgerButton from "./HamburgerButton";
-import SearchToggleButton from "./SearchToggleButton";
 import StickyHeaderRoot from "./StickyHeaderRoot";
 import { header } from "@/data/header";
 
@@ -36,7 +35,6 @@ export default function Header() {
 
             <div className="col-lg-3 col-md-6 col-sm-6">
               <div className="header-btn">
-                <SearchToggleButton />
                 <DataLink
                   href={toolbar.login.href}
                   className={`btn-style1 ${toolbar.login.variant}`}
@@ -48,20 +46,6 @@ export default function Header() {
                       alt={toolbar.login.arrowIcon.alt}
                       width={toolbar.login.arrowIcon.width}
                       height={toolbar.login.arrowIcon.height}
-                    />
-                  </span>
-                </DataLink>
-                <DataLink
-                  href={toolbar.signUp.href}
-                  className={`btn-style1 ${toolbar.signUp.variant}`}
-                >
-                  {toolbar.signUp.label}
-                  <span>
-                    <Image
-                      src={toolbar.signUp.arrowIcon.src}
-                      alt={toolbar.signUp.arrowIcon.alt}
-                      width={toolbar.signUp.arrowIcon.width}
-                      height={toolbar.signUp.arrowIcon.height}
                     />
                   </span>
                 </DataLink>

@@ -8,22 +8,21 @@ export default function ContactSection() {
       <div className="col-lg-6">
         <div className="contact-content">
           <div className="sec-title">
-            <span
-              className="sub-title"
-              data-aos="fade-up"
-              data-aos-duration={900}
-              data-aos-delay={300}
-            >
-              Tem um Projeto em Mente?
-            </span>
             <h2
               className="title"
               data-aos="fade-up"
               data-aos-duration={900}
               data-aos-delay={400}
             >
-              Vamos Construir Algo Incrível Juntos
+              Estamos Aqui para Ajudar
             </h2>
+            <p
+              data-aos="fade-up"
+              data-aos-duration={900}
+              data-aos-delay={500}
+            >
+              Dúvidas sobre o produto, planos ou como começar? Nossa equipe responde rápido.
+            </p>
           </div>
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-6">

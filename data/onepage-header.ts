@@ -27,26 +27,11 @@ const onepageHeaderData = {
     },
   },
   toolbar: {
-    search: {
-      href: "#",
-      ariaLabel: "Search",
-      icon: {
-        src: "/assets/images/icon/search.svg",
-        alt: "Search Icon",
-        width: 20,
-        height: 20,
-      },
-    },
     buttons: [
       {
         label: "Entrar",
-        href: "#",
+        href: "https://app.divisionflow.com",
         variantClass: "v3",
-      },
-      {
-        label: "Cadastrar",
-        href: "#",
-        variantClass: "v2",
       },
     ],
     arrowIcon: {

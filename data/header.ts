@@ -38,7 +38,7 @@ export function isSubmenu(
 }
 
 export const headerMenu: HeaderNavTopItem[] = [
-  { label: "Funcionalidades", href: "#features" },
+  { label: "Como Funciona", href: "#how-it-works" },
   { label: "Preços", href: "#pricing" },
   { label: "Contato", href: "#Contact" },
 ];
@@ -70,31 +70,10 @@ const mobile = {
 };
 
 const toolbar = {
-  search: {
-    href: "#",
-    ariaLabel: "Search",
-    icon: {
-      src: "/assets/images/icon/search.svg",
-      alt: "Search Icon",
-      width: 20,
-      height: 20,
-    } satisfies HeaderImageSpec,
-  },
   login: {
-    href: "#",
+    href: "https://app.divisionflow.com",
     label: "Entrar",
     variant: "v3",
-    arrowIcon: {
-      src: "/assets/images/icon/arrow.svg",
-      alt: "Arrow Icon",
-      width: 12,
-      height: 12,
-    } satisfies HeaderImageSpec,
-  },
-  signUp: {
-    href: "#",
-    label: "Cadastrar",
-    variant: "v2",
     arrowIcon: {
       src: "/assets/images/icon/arrow.svg",
       alt: "Arrow Icon",

@@ -38,28 +38,20 @@ export default function Page() {
       </section>
 
       {/* choose-us-sec */}
-      <section className="choose-us-sec space">
+      <section id="how-it-works" className="choose-us-sec space">
         <div className="carousel-container">
           <div className="choose-info">
             <div className="sec-title white">
-              <span
-                className="sub-title"
-                data-aos="fade-up"
-                data-aos-duration={900}
-                data-aos-delay={300}
-              >
-                Como Funciona
-              </span>
               <h2
                 className="title"
                 data-aos="fade-up"
                 data-aos-duration={900}
                 data-aos-delay={400}
               >
-                Passos Simples para Começar
+                Do primeiro contato ao contrato assinado, sem perder o fio
               </h2>
             </div>
-            <div className="row">
+            <div className="row gy-4">
               <StartedSteps />
             </div>
           </div>

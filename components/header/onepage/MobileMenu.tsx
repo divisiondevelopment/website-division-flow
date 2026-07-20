@@ -13,7 +13,7 @@ type MobileMenuProps = {
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   const menuClassName = `mobile-menu ${isOpen ? "active" : ""}`.trim();
   const overlayClassName = `menu-overlay ${isOpen ? "active" : ""}`.trim();
-  const { menuItems, mobile } = headerData;
+  const { menuItems, mobile, toolbar } = headerData;
   const [hoveredHref, setHoveredHref] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState("Home");
 
@@ -94,6 +94,23 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
             ))}
           </ul>
         </nav>
+        {toolbar.buttons.map((button) => (
+          <a
+            key={button.label}
+            href={button.href}
+            className="btn-style1 mobile-menu-login"
+          >
+            {button.label}
+            <span>
+              <Image
+                src={toolbar.arrowIcon.src}
+                alt={toolbar.arrowIcon.alt}
+                width={toolbar.arrowIcon.width}
+                height={toolbar.arrowIcon.height}
+              />
+            </span>
+          </a>
+        ))}
       </div>
       <div
         className={overlayClassName}

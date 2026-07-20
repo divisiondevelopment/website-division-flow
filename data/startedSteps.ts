@@ -15,9 +15,9 @@ export const startedStepsData: StartedStepItem[] = [
     delay: 300,
     icon: "/assets/images/icon/choose1-1.svg",
     alt: "Ícone de Cadastro e Configuração",
-    title: "Cadastre-se e Configure",
+    title: "Organize seus contatos",
     description:
-      "Crie sua conta em minutos e configure facilmente o CRM para refletir o processo comercial da sua empresa — sem precisar de código.",
+      "Todos os seus leads e clientes num Kanban visual. Sem planilha, sem duplicar cadastro.",
   },
   {
     id: 2,
@@ -25,9 +25,9 @@ export const startedStepsData: StartedStepItem[] = [
     delay: 400,
     icon: "/assets/images/icon/choose1-2.svg",
     alt: "Ícone de Conexão e Automação",
-    title: "Conecte e Automatize",
+    title: "Feche contratos mais rápido",
     description:
-      "Integre suas ferramentas favoritas, importe seus contatos e configure fluxos de automação para economizar tempo desde o primeiro dia.",
+      "Propostas, contratos e documentos direto na plataforma. Assinatura e acompanhamento sem sair do CRM.",
   },
   {
     id: 3,
@@ -35,8 +35,8 @@ export const startedStepsData: StartedStepItem[] = [
     delay: 500,
     icon: "/assets/images/icon/choose1-3.svg",
     alt: "Ícone de Lançamento e Crescimento",
-    title: "Lance e Cresça",
+    title: "Acompanhe cada projeto",
     description:
-      "Use a plataforma para otimizar suas operações, aumentar a produtividade da equipe e escalar seu negócio com insights em tempo real.",
+      "Do orçamento à entrega, veja o status de tudo num painel só — sem perguntar 'como que tá aquele projeto?' no WhatsApp.",
   },
 ];

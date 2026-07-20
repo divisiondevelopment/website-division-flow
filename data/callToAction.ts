@@ -1,9 +1,8 @@
 export const callToActionContent = {
-  subTitle: "Comece sem compromisso",
-  title: "Inicie Seu Teste Gratuito Hoje",
-  description:
-    "Experimente todo o poder do nosso CRM — gratuito por 14 dias. Sem cartão de crédito, sem letras miúdas.",
-  buttonText: "Começar Teste Gratuito de 14 Dias",
+  subTitle: "Pronto para começar?",
+  title: "Comece a Organizar Seu Negócio Hoje",
+  description: "Chega de perder tempo (e clientes) entre planilha e WhatsApp.",
+  buttonText: "Começar Agora",
   buttonHref: "#",
   arrowIcon: {
     src: "/assets/images/icon/arrow.svg",

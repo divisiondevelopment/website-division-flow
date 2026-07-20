@@ -10,7 +10,7 @@ import { isDropdown, isSubmenu } from "@/data/header";
  */
 export function menuHrefToPathname(href: string): string | null {
   const h = href.trim();
-  if (!h || h === "#") return null;
+  if (!h || h.startsWith("#")) return null;
   if (h.startsWith("/") && !h.startsWith("//")) {
     const q = h.split("?")[0];
     return q || "/";

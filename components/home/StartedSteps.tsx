@@ -7,11 +7,12 @@ export default function StartedSteps() {
       {startedStepsData.map((step) => (
         <div key={step.id} className="col-lg-4 col-md-6">
           <div
+            className="h-100"
             data-aos={step.aos}
             data-aos-duration={900}
             data-aos-delay={step.delay}
           >
-            <div className="choose-block">
+            <div className="choose-block h-100">
               <div className="choose-icon">
                 <Image
                   src={step.icon}

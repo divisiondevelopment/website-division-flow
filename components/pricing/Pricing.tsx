@@ -49,8 +49,8 @@ function PricingCard({
   billing: BillingPeriod;
 }) {
   const cardClass = plan.cardVariant
-    ? `pricing-card ${plan.cardVariant}`
-    : "pricing-card";
+    ? `pricing-card ${plan.cardVariant} h-100`
+    : "pricing-card h-100";
 
   return (
     <div className="col-lg-4 col-md-6">
@@ -85,16 +85,6 @@ function PricingCard({
               />
             </span>
           </DataLink>
-          <span className="credit">
-            <Image
-              src={pricingAssets.creditIcon}
-              alt={pricingAssets.creditAlt}
-              width={20}
-              height={20}
-              style={iconImgStyle}
-            />
-            {pricingAssets.creditText}
-          </span>
         </div>
         <ul className="price-list">
           {plan.features.map((feature) => (
@@ -131,7 +121,7 @@ export default function Pricing() {
           role="tabpanel"
           aria-labelledby={`pricing-tab-${billing}`}
         >
-          <div className="row justify-content-center">
+          <div className="row justify-content-center gy-4">
             {pricingPlans.map((plan) => (
               <PricingCard key={plan.id} plan={plan} billing={billing} />
             ))}

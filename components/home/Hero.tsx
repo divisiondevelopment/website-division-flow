@@ -7,7 +7,7 @@ import { homeHeroData } from "@/data/homeHero";
 // type DemoRequestStatus = "idle" | "loading" | "success" | "error";
 
 export default function Hero() {
-  const { subTitle, title, description } = homeHeroData;
+  const { socialProof, title, description } = homeHeroData;
   // Formulário de contato removido temporariamente, manter para uso futuro
   // const [email, setEmail] = useState("");
   // const [status, setStatus] = useState<DemoRequestStatus>("idle");
@@ -56,22 +56,29 @@ export default function Hero() {
       <div className="carousel-container">
         <div className="hero-info">
           <div className="hero-content">
-            <span
-              className="sub-title"
+            <div
+              className="hero-social-proof"
               data-aos="zoom-in"
               data-aos-duration={900}
               data-aos-delay={200}
             >
-              {subTitle}
-            </span>
-            <h1
+              <div className="hero-social-proof-avatars">
+                {socialProof.avatars.map((src) => (
+                  <img key={src} src={src} alt="" width={36} height={36} />
+                ))}
+              </div>
+              <span className="hero-social-proof-text">
+                {socialProof.text}
+              </span>
+            </div>
+            <h3
               className="title"
               data-aos="zoom-in"
               data-aos-duration={900}
               data-aos-delay={200}
             >
               {title}
-            </h1>
+            </h3>
             <p data-aos="fade-up" data-aos-duration={900} data-aos-delay={300}>
               {description}
             </p>
@@ -85,7 +92,7 @@ export default function Hero() {
               data-aos-duration={900}
               data-aos-delay={400}
             >
-              Falar com a gente
+              Começar Agora
               <span>
                 <Image
                   src="/assets/images/icon/arrow.svg"

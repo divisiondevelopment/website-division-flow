@@ -8,8 +8,6 @@ import "../public/assets/css/custom.css";
 import AOSInit from "@/components/common/AOSInit";
 import BootstrapInit from "@/components/common/BootstrapInit";
 import { MobileMenuProvider } from "@/components/header/MobileMenuProvider";
-import { SearchPopupProvider } from "@/components/header/SearchPopupProvider";
-import SearchBox from "@/components/header/SearchBox";
 import AppToast from "@/components/common/AppToast";
 import {
   SITE_DESCRIPTION,
@@ -51,15 +49,12 @@ export default function RootLayout({
         <div className="wrapper">
           <Suspense fallback={null}>
             <MobileMenuProvider>
-              <SearchPopupProvider>
-                <Suspense fallback={null}>
-                  <AOSInit offset={100} anchorPlacement="center-bottom" />
-                </Suspense>
-                <BootstrapInit />
-                {children}
-                <AppToast />
-                <SearchBox />
-              </SearchPopupProvider>
+              <Suspense fallback={null}>
+                <AOSInit offset={100} anchorPlacement="center-bottom" />
+              </Suspense>
+              <BootstrapInit />
+              {children}
+              <AppToast />
             </MobileMenuProvider>
           </Suspense>
         </div>

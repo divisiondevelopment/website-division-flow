@@ -1,5 +1,8 @@
 export type HomeHeroData = {
-  subTitle: string;
+  socialProof: {
+    avatars: string[];
+    text: string;
+  };
   title: string;
   description: string;
   form: {
@@ -29,10 +32,18 @@ export type HomeHeroData = {
 };
 
 export const homeHeroData: HomeHeroData = {
-  subTitle: "CRM para Vendas que Convertem",
-  title: "Feche Mais Negócios com Total Controle",
+  socialProof: {
+    avatars: [
+      "https://randomuser.me/api/portraits/women/1.jpg",
+      "https://randomuser.me/api/portraits/men/2.jpg",
+      "https://randomuser.me/api/portraits/women/3.jpg",
+      "https://randomuser.me/api/portraits/men/4.jpg",
+    ],
+    text: "+20 donos de empresas já usam o Division Flow",
+  },
+  title: "Chega de planilha e WhatsApp. Tudo num só lugar.",
   description:
-    "O CRM completo que centraliza seus contatos, automatiza follow-ups e entrega visibilidade total do seu pipeline.",
+    "Division Flow junta contatos, propostas, contratos e projetos num CRM simples de usar — pra você parar de perder tempo (e clientes) entre planilha e WhatsApp.",
   form: {
     placeholder: "Digite seu e-mail corporativo",
     buttonText: "Solicitar uma Demo",
