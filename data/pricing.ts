@@ -47,7 +47,7 @@ export const pricingPlans: PricingPlan[] = [
       "Ideal para profissionais autônomos e pequenas equipes que estão começando no CRM.",
     monthly: { amount: "R$24,90", periodNote: "/mês" },
     yearly: { amount: "R$24,90", periodNote: "/mês" },
-    ctaHref: "#",
+    ctaHref: "https://app.divisionflow.com/checkout?plan=flow",
     ctaLabel: "Começar Agora",
     features: [
       "1 usuário incluso",
@@ -70,7 +70,7 @@ export const pricingPlans: PricingPlan[] = [
     description: "Para equipes em crescimento que precisam de mais flexibilidade e automação.",
     monthly: { amount: "R$74,90", periodNote: "/mês" },
     yearly: { amount: "R$74,90", periodNote: "/mês" },
-    ctaHref: "#",
+    ctaHref: "https://app.divisionflow.com/checkout?plan=flow_pro",
     ctaLabel: "Começar Agora",
     features: [
       "Até 5 usuários inclusos",
