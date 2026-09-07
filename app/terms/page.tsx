@@ -108,10 +108,26 @@ const Page = () => {
 
                 <h2 className="mt-5">6. Dados do usuário</h2>
                 <p>
-                  Os dados inseridos na plataforma pertencem ao usuário. A
-                  Division Flow não acessa o conteúdo dos workspaces, exceto
-                  quando necessário para suporte técnico solicitado pelo
-                  próprio usuário ou cumprimento de obrigação legal.
+                  Os dados e conteúdos inseridos pelo usuário permanecerão
+                  sob sua responsabilidade e controle, sem que sua inserção na
+                  plataforma implique transferência à Division Flow da
+                  titularidade ou de quaisquer direitos sobre o conteúdo.
+                  Tratando-se de dados pessoais de terceiros, serão
+                  preservados os direitos dos respectivos titulares previstos
+                  na LGPD. Quando o usuário atuar como controlador dos dados
+                  pessoais inseridos no workspace, caberá a ele assegurar a
+                  existência de hipótese legal adequada para o tratamento e
+                  fornecer à Division Flow as instruções necessárias à
+                  execução dos serviços.
+                </p>
+                <p>
+                  A Division Flow não realiza acesso humano ao conteúdo dos
+                  workspaces, salvo quando necessário para atendimento de
+                  solicitação de suporte, cumprimento de obrigação legal,
+                  segurança da plataforma ou outras hipóteses previstas nestes
+                  Termos. O processamento automatizado necessário ao
+                  armazenamento e funcionamento da plataforma ocorrerá
+                  normalmente durante a prestação dos serviços.
                 </p>
 
                 <h2 className="mt-5">7. Disponibilidade</h2>

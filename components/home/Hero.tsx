@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 // import { useEffect, useState, type FormEvent } from "react";
+import HeroBars from "@/components/home/HeroBars";
 import { homeHeroData } from "@/data/homeHero";
 
 // type DemoRequestStatus = "idle" | "loading" | "success" | "error";
 
 export default function Hero() {
-  const { socialProof, title, description } = homeHeroData;
+  const { title, description } = homeHeroData;
   // Formulário de contato removido temporariamente, manter para uso futuro
   // const [email, setEmail] = useState("");
   // const [status, setStatus] = useState<DemoRequestStatus>("idle");
@@ -56,21 +57,7 @@ export default function Hero() {
       <div className="carousel-container">
         <div className="hero-info">
           <div className="hero-content">
-            <div
-              className="hero-social-proof"
-              data-aos="zoom-in"
-              data-aos-duration={900}
-              data-aos-delay={200}
-            >
-              <div className="hero-social-proof-avatars">
-                {socialProof.avatars.map((src) => (
-                  <img key={src} src={src} alt="" width={36} height={36} />
-                ))}
-              </div>
-              <span className="hero-social-proof-text">
-                {socialProof.text}
-              </span>
-            </div>
+            <HeroBars />
             <h3
               className="title"
               data-aos="zoom-in"
@@ -102,6 +89,20 @@ export default function Hero() {
                 />
               </span>
             </a>
+
+            <div
+              className="hero-video-placeholder"
+              style={{ overflow: "hidden" }}
+            >
+              <Image
+                src="/assets/images/feature/dashboard-divflow.png"
+                alt="Dashboard da Division Flow"
+                width={2932}
+                height={1540}
+                style={{ width: "100%", height: "auto", display: "block" }}
+                priority
+              />
+            </div>
 
             {/* Formulário de contato removido temporariamente, manter para uso futuro
             <form
