@@ -68,7 +68,13 @@ const Page = () => {
     <section className="coming-soon">
       <div className="carousel-container">
         <div className="coming-soon-content">
-          <span className="coming-soon-logo">Division Flow</span>
+          <Image
+            src="/assets/images/logo.png"
+            alt="Division Flow"
+            width={600}
+            height={465}
+            className="coming-soon-logo"
+          />
 
           <div className="coming-soon-info">
             <span className="sub-title">{comingSoonContent.lead}</span>

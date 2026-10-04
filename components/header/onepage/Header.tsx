@@ -52,7 +52,14 @@ const Header = () => {
               <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="header-logo">
                   <Link href="/" className="logo" title={logo.title}>
-                    <span className="logo-text">Division Flow</span>
+                    <Image
+                    src="/assets/images/logo.png"
+                    alt="Division Flow"
+                    width={600}
+                    height={465}
+                    className="site-logo"
+                    priority
+                  />
                   </Link>
                 </div>
               </div>

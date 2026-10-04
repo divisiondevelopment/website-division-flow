@@ -226,14 +226,37 @@ body.active .dropdown-menu li a:hover {
 }
 @media (max-width: 992px) {
     .hero-content .title {
-        font-size: 35px;
-        line-height: 43px;
+        font-size: 42px;
+        line-height: 50px;
     }
 }
 @media (max-width: 576px) {
     .hero-content .title {
-        font-size: 24px;
-        line-height: 31px;
+        font-size: 34px;
+        line-height: 41px;
     }
 }
 
+
+/* Logo: the asset is white-on-transparent, so render it dark in light mode */
+img.site-logo {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 48px;
+  filter: brightness(0);
+}
+img.site-logo--footer {
+  max-height: 64px;
+}
+.main-home.active .site-logo {
+  filter: none;
+}
+/* Mobile header: nav is hidden, so let the logo size by height and overflow its narrow column */
+@media (max-width: 992px) {
+  .header-logo img.site-logo {
+    height: 42px;
+    max-height: none;
+    max-width: none;
+  }
+}

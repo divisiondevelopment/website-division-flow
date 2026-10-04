@@ -22,7 +22,13 @@ export default function Footer() {
                   data-aos-delay={100}
                 >
                   <div className="footer-logo">
-                    <span className="logo-text">Division Flow</span>
+                    <Image
+                      src="/assets/images/logo.png"
+                      alt="Division Flow"
+                      width={600}
+                      height={465}
+                      className="site-logo site-logo--footer"
+                    />
                   </div>
 
                   <p>

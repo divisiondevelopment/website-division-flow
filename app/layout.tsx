@@ -36,6 +36,10 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_TITLE_TEMPLATE_SUFFIX}`,
   },
   description: SITE_DESCRIPTION,
+  icons: {
+    icon: "/assets/images/favicon.png",
+    apple: "/assets/images/favicon.png",
+  },
 };
 
 export default function RootLayout({

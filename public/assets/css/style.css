@@ -47,23 +47,23 @@ Version: 1.0.0
 :root {
   /* ── Nova paleta (light mode) ── */
   --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 290.695);
+  --foreground: oklch(0.2192 0.1277 285.41);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 290.695);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 290.695);
-  --primary: oklch(0.673 0.182 290);
+  --primary: oklch(0.604 0.2269 311.69);
   --primary-foreground: oklch(0.98 0 0);
-  --secondary: oklch(0.96 0.02 290);
-  --secondary-foreground: oklch(0.25 0.08 290);
+  --secondary: oklch(0.9215 0.0399 311.74);
+  --secondary-foreground: oklch(0.2192 0.1277 285.41);
   --muted: oklch(0.968 0.007 247.896);
   --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.9 0.05 290);
-  --accent-foreground: oklch(0.25 0.08 290);
+  --accent: oklch(0.67 0.1819 290.41);
+  --accent-foreground: oklch(0.2192 0.1277 285.41);
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.929 0.013 255.508);
   --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.673 0.182 290);
+  --ring: oklch(0.604 0.2269 311.69);
   /* ── Variáveis legadas mapeadas para a nova paleta ── */
   --theme-color: var(--primary);
   --theme-color2: var(--secondary);
@@ -77,7 +77,7 @@ Version: 1.0.0
   --bg-color4: #eee;
   --dark-body: #0d141d;
   --border-color: #eeeeee;
-  --border-color2: oklch(0.96 0.04 290);
+  --border-color2: oklch(0.9215 0.0399 311.74);
   --border-color3: #0e0e0e0d;
   --border-color4: #ffffff1a;
   --border-color5: #0e0e0e1a;
@@ -1625,8 +1625,8 @@ h6 {
   height: 100%;
   background: radial-gradient(
     ellipse 75% 55% at 50% 15%,
-    oklch(0.673 0.182 290 / 0.45) 0%,
-    oklch(0.673 0.182 290 / 0.2) 45%,
+    color-mix(in oklch, var(--primary) 45%, transparent) 0%,
+    color-mix(in oklch, var(--primary) 20%, transparent) 45%,
     transparent 75%
   );
   pointer-events: none;
@@ -3249,7 +3249,7 @@ h6 {
 
 .pricing-card.v2 {
   background-color: transparent;
-  background-image: linear-gradient(180deg, oklch(0.96 0.04 290) 0%, transparent 100%);
+  background-image: linear-gradient(180deg, oklch(0.9215 0.0399 311.74) 0%, transparent 100%);
 }
 
 .testimonial-sec {
@@ -9046,22 +9046,18 @@ h6 {
   inset: 0;
   background: radial-gradient(
     ellipse 75% 55% at 50% 15%,
-    oklch(0.673 0.182 290 / 0.45) 0%,
-    oklch(0.673 0.182 290 / 0.2) 45%,
+    color-mix(in oklch, var(--primary) 45%, transparent) 0%,
+    color-mix(in oklch, var(--primary) 20%, transparent) 45%,
     transparent 75%
   );
   pointer-events: none;
 }
 
-.coming-soon-logo {
+img.coming-soon-logo {
   display: block;
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--white-color);
+  width: auto;
+  height: 72px;
   margin-bottom: 64px;
-  white-space: nowrap;
 }
 
 .coming-soon-info {
@@ -11416,7 +11412,7 @@ h6 {
   --card-foreground: oklch(0.984 0 0);
   --popover: oklch(0.364 0 0);
   --popover-foreground: oklch(0.984 0 0);
-  --primary: oklch(0.673 0.182 290);
+  --primary: oklch(0.604 0.2269 311.69);
   --primary-foreground: oklch(0.98 0 0);
   --secondary: oklch(0.25 0.05 290);
   --secondary-foreground: oklch(0.98 0 0);
@@ -11427,7 +11423,7 @@ h6 {
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.673 0.182 290);
+  --ring: oklch(0.604 0.2269 311.69);
   background-color: #090d16;
 }
 .main-home.active h1,
@@ -11695,7 +11691,7 @@ h6 {
   filter: brightness(1111);
 }
 .main-home.active .pricing-card.v2 {
-  background-color: oklch(0.25 0.06 290);
+  background-color: oklch(0.25 0.06 311.69);
 }
 .main-home.active .pricing-card.v2 .title,
 .main-home.active .pricing-card.v2 p,
@@ -11704,8 +11700,8 @@ h6 {
   color: var(--title-color);
 }
 .main-home.active .pricing-card.v2 .price-list {
-  background-color: oklch(0.2 0.05 290);
-  border-color: oklch(0.3 0.07 290);
+  background-color: oklch(0.2 0.05 311.69);
+  border-color: oklch(0.3 0.07 311.69);
 }
 .main-home.active .pricing-card.v2 .price-list li {
   color: var(--title-color);
