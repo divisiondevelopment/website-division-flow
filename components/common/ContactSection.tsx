@@ -42,11 +42,11 @@ export default function ContactSection() {
                   Precisa de Ajuda?
                 </h3>
                 <DataLink
-                  href="mailto:divisiondevservices@gmail.com"
+                  href="mailto:contato@divisiondev.com.br"
                   title=""
                   className="nmbr"
                 >
-                  divisiondevservices@gmail.com
+                  contato@divisiondev.com.br
                 </DataLink>
                 <DataLink
                   href="tel:+18003308885544"

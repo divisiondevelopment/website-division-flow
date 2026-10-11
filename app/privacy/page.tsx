@@ -205,7 +205,7 @@ const Page = () => {
                 </p>
                 <p>
                   Para exercer qualquer desses direitos, entre em contato pelo
-                  e-mail divisiondevservices@gmail.com. Respondemos em até 15
+                  e-mail contato@divisiondev.com.br. Respondemos em até 15
                   dias corridos.
                 </p>
 
@@ -214,7 +214,7 @@ const Page = () => {
                   O encarregado pelo tratamento de dados pessoais (Data
                   Protection Officer) da Division Flow é Bernardo Luiz Werner
                   Mesquita, que pode ser contatado pelo e-mail
-                  divisiondevservices@gmail.com para dúvidas, solicitações ou
+                  contato@divisiondev.com.br para dúvidas, solicitações ou
                   reclamações relacionadas ao tratamento de dados pessoais.
                 </p>
 
@@ -234,7 +234,7 @@ const Page = () => {
 
                 <h2 className="mt-5">12. Contato</h2>
                 <p>
-                  E-mail: divisiondevservices@gmail.com
+                  E-mail: contato@divisiondev.com.br
                   <br />
                   Site: divisionflow.com
                 </p>
