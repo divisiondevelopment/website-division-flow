@@ -131,7 +131,7 @@ export async function POST(req: NextRequest) {
     const resend = new Resend(process.env.RESEND_API_KEY);
     const { error } = await resend.emails.send({
       from: "contato@divisionflow.com",
-      to: "divisiondevservices@gmail.com",
+      to: "contato@divisiondev.com.br",
       replyTo: String(email),
       subject: "Nova mensagem de contato — Division Flow",
       text: `Nome: ${name}\nTelefone: ${phone}\nEmail: ${email}\nMensagem: ${message}`,
