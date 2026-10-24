@@ -1,8 +1,4 @@
 export type HomeHeroData = {
-  socialProof: {
-    avatars: string[];
-    text: string;
-  };
   title: string;
   description: string;
   form: {
@@ -32,18 +28,9 @@ export type HomeHeroData = {
 };
 
 export const homeHeroData: HomeHeroData = {
-  socialProof: {
-    avatars: [
-      "https://randomuser.me/api/portraits/women/1.jpg",
-      "https://randomuser.me/api/portraits/men/2.jpg",
-      "https://randomuser.me/api/portraits/women/3.jpg",
-      "https://randomuser.me/api/portraits/men/4.jpg",
-    ],
-    text: "+20 donos de empresas já usam o Division Flow",
-  },
   title: "Chega de planilha e WhatsApp. Tudo num só lugar.",
   description:
-    "Division Flow junta contatos, propostas, contratos e projetos num CRM simples de usar — pra você parar de perder tempo (e clientes) entre planilha e WhatsApp.",
+    "Contatos, propostas, contratos e projetos — tudo num CRM simples, sem planilha e sem perder cliente no WhatsApp.",
   form: {
     placeholder: "Digite seu e-mail corporativo",
     buttonText: "Solicitar uma Demo",

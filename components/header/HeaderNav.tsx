@@ -16,8 +16,6 @@ import {
   pathnameMatchesHref,
 } from "@/lib/header-nav-route";
 
-const imgStyle = { width: "auto", height: "auto", maxWidth: "100%" } as const;
-
 function HeaderNavLink({
   href,
   className,
@@ -63,7 +61,7 @@ function DropdownChevron({ spec }: { spec: HeaderImageSpec }) {
       alt={spec.alt}
       width={spec.width}
       height={spec.height}
-      style={imgStyle}
+      style={{ width: spec.width, height: spec.height, flexShrink: 0 }}
     />
   );
 }

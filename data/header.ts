@@ -38,8 +38,17 @@ export function isSubmenu(
 }
 
 export const headerMenu: HeaderNavTopItem[] = [
-  { label: "Como Funciona", href: "#how-it-works" },
+  {
+    label: "Como Funciona",
+    href: "#how-it-works",
+    children: [
+      { label: "Organize seus contatos", href: "#step-1" },
+      { label: "Feche contratos mais rápido", href: "#step-2" },
+      { label: "Acompanhe cada projeto", href: "#step-3" },
+    ],
+  },
   { label: "Preços", href: "#pricing" },
+  { label: "Recursos", href: "/ajuda" },
   { label: "Contato", href: "#Contact" },
 ];
 
@@ -73,6 +82,17 @@ const toolbar = {
   login: {
     href: "https://app.divisionflow.com",
     label: "Entrar",
+    variant: "outline",
+    arrowIcon: {
+      src: "/assets/images/icon/arrow.svg",
+      alt: "Arrow Icon",
+      width: 12,
+      height: 12,
+    } satisfies HeaderImageSpec,
+  },
+  subscribeCta: {
+    href: "https://app.divisionflow.com/checkout?plan=flow",
+    label: "Assinar agora",
     variant: "v3",
     arrowIcon: {
       src: "/assets/images/icon/arrow.svg",

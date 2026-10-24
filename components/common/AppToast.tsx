@@ -12,6 +12,7 @@ export default function AppToast() {
       expand={false}
       gap={12}
       visibleToasts={4}
+      offset={{ bottom: 90 }}
     />
   );
 }

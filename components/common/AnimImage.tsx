@@ -1,7 +1,7 @@
-export default function AnimImage() {
+export default function AnimImage({ clip = false }: { clip?: boolean }) {
   return (
     <>
-      <div className="anim-img">
+      <div className={`anim-img${clip ? " anim-img--clip" : ""}`}>
         <div className="anim-one">
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -9,6 +9,8 @@ import AOSInit from "@/components/common/AOSInit";
 import BootstrapInit from "@/components/common/BootstrapInit";
 import { MobileMenuProvider } from "@/components/header/MobileMenuProvider";
 import AppToast from "@/components/common/AppToast";
+import CookieConsent from "@/components/common/CookieConsent";
+import FaqChatWidget from "@/components/common/FaqChatWidget";
 import {
   SITE_DESCRIPTION,
   SITE_TITLE_DEFAULT,
@@ -59,6 +61,8 @@ export default function RootLayout({
               <BootstrapInit />
               {children}
               <AppToast />
+              <CookieConsent />
+              <FaqChatWidget />
             </MobileMenuProvider>
           </Suspense>
         </div>

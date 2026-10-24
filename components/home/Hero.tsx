@@ -70,30 +70,37 @@ export default function Hero() {
               {description}
             </p>
 
-            <a
-              href="https://wa.me/5551995829213"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-style1"
+            <div
+              className="hero-cta-group"
               data-aos="fade-up"
               data-aos-duration={900}
               data-aos-delay={400}
             >
-              Começar Agora
-              <span>
-                <Image
-                  src="/assets/images/icon/arrow.svg"
-                  alt="Ícone de seta"
-                  width={12}
-                  height={12}
-                />
-              </span>
-            </a>
+              <a
+                href="https://wa.me/555195829213"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-style1 no-icon outline"
+              >
+                Falar com vendas
+              </a>
+              <a
+                href="https://app.divisionflow.com/checkout?plan=flow"
+                className="btn-style1 no-icon"
+              >
+                Assinar agora
+              </a>
+            </div>
 
             <div
               className="hero-video-placeholder"
               style={{ overflow: "hidden" }}
             >
+              <div className="hero-video-placeholder__chrome" aria-hidden="true">
+                <span className="hero-video-placeholder__dot" />
+                <span className="hero-video-placeholder__dot" />
+                <span className="hero-video-placeholder__dot" />
+              </div>
               <Image
                 src="/assets/images/feature/dashboard-divflow.png"
                 alt="Dashboard da Division Flow"

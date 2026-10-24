@@ -29,8 +29,8 @@ export default function Page() {
       {/* MobileMenu start */}
       <MobileMenu />
 
-      <section className="main-sec space-md-bottom">
-        <AnimImage />
+      <section className="main-sec main-sec--home space-md-bottom">
+        <AnimImage clip />
 
         {/* hero-sec */}
         <Hero />

@@ -12,7 +12,7 @@ export default function StartedSteps() {
             data-aos-duration={900}
             data-aos-delay={step.delay}
           >
-            <div className="choose-block h-100">
+            <div id={`step-${step.id}`} className="choose-block h-100">
               <div className="choose-icon">
                 <Image
                   src={step.icon}
