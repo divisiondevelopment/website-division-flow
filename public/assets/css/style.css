@@ -64,6 +64,15 @@ Version: 1.0.0
   --border: oklch(0.929 0.013 255.508);
   --input: oklch(0.929 0.013 255.508);
   --ring: oklch(0.604 0.2269 311.69);
+  /* ── Cores oficiais do manual de marca (valores fixos, não derivados) ── */
+  --color-violeta: #977cfb;
+  --color-lilas-nevoa: #eedef9;
+  /* Matches crm-division-flow/frontend's --radius (0.85rem) so buttons
+     read consistently between the marketing site and the actual product.
+     --radius-md below mirrors the CRM's own --radius-md: calc(var(--radius)
+     - 2px) formula, since that's the token its Button component uses. */
+  --radius: 0.85rem;
+  --radius-md: calc(var(--radius) - 2px);
   /* ── Variáveis legadas mapeadas para a nova paleta ── */
   --theme-color: var(--primary);
   --theme-color2: var(--secondary);
@@ -1078,7 +1087,7 @@ h6 {
   line-height: 50px;
   padding: 0 5px 0 25px;
   background-color: var(--theme-color);
-  border-radius: 100px;
+  border-radius: var(--radius-md);
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -1251,7 +1260,7 @@ h6 {
 }
 
 .wrapper {
-  overflow: hidden;
+  overflow: clip;
 }
 
 .dark {

@@ -1,3 +1,56 @@
+/* Hero spotlight (Aceternity UI): clip the glow to the hero section so it
+   never bleeds into the header or the section below. Also center the hero
+   content vertically within .hero-sec's min-height: flex-direction column
+   + justify-content center centers it along the (now vertical) main axis,
+   while the child's own max-width + margin: 0 auto keeps the existing
+   horizontal centering untouched (align-items default "stretch" leaves the
+   child's own width logic alone). The Spotlight is position: absolute, so
+   it's out of flow and doesn't affect this layout. */
+.hero-sec {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* "Assinar agora" CTA: Aceternity Moving Border button (components/ui/
+   moving-border.tsx), styled to match .btn-style1.no-icon's type scale
+   (font-family/weight only here — size/color/background/border are set
+   via cn()-mergeable Tailwind utility overrides passed from Hero.tsx, see
+   those props for the rest). Plain, unlayered CSS so it safely wins over
+   Tailwind's own layered utilities for the one property (font-family)
+   Tailwind has no utility for here. */
+.cta-moving-border {
+    font-family: var(--title-font);
+}
+/* Focus ring for the button's root <a> (the actually-focusable element).
+   Written directly instead of Tailwind's outline-* / focus-visible:outline-*
+   utilities: cn()'s tailwind-merge-style conflict resolution treated the
+   bare "outline" utility (sets outline-style: solid) as conflicting with
+   "outline-2"/"outline-offset-2"/"outline-[...]" and silently dropped it,
+   leaving width/color/offset set but no visible outline at all — confirmed
+   via real Tab-key navigation + computed style in the browser. */
+.cta-moving-border-link:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+/* The comet that travels the border: a light purple/lilac tone derived
+   from --primary via color-mix (same technique as the WordRotate gradient)
+   instead of the component's default sky-blue, so it reads as a subtle
+   accent against the solid purple button fill rather than clashing with
+   it. Written as plain CSS (not a Tailwind bg-[...] arbitrary value)
+   because color-mix()'s commas inside Tailwind's bracket syntax are easy
+   to get wrong; being unlayered, it still safely wins over the
+   component's own (layered) Tailwind background utility regardless of
+   class order. */
+.cta-moving-border-glow {
+    background: radial-gradient(
+        color-mix(in oklch, var(--primary), white 55%) 40%,
+        transparent 60%
+    );
+    filter: blur(3px);
+}
+
 body.active .dropdown-menu li a:hover {
     background-color: #3b404b !important;
 }
@@ -157,71 +210,137 @@ body.active .dropdown-menu li a:hover {
     z-index: 1;
 }
 
-.hero-bars-wrap {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100vw;
-    height: 520px;
+/* WordRotate: rotating word inside the hero H1. .word-rotate__measure is an
+   invisible, in-flow copy of the CURRENT word that gives the container its
+   natural width/height (no space reserved for longer words); its measured
+   width is also applied as an explicit inline style so .word-rotate can
+   animate between widths on change. The actual visible word sits in
+   .word-rotate__viewport, absolutely positioned over that box. */
+.word-rotate {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
     overflow: hidden;
+    white-space: nowrap;
+    color: var(--primary);
+    transition: width 0.25s ease;
+}
+.word-rotate__measure {
+    visibility: hidden;
+}
+.word-rotate__viewport {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+.word-rotate__word {
+    position: absolute;
+    inset: 0;
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+    /* Gradient text: lighter lilac -> brand purple -> darker indigo, all
+       derived from --primary via color-mix/oklch so the brand color stays
+       the single source of truth. background-clip paints it into the
+       glyphs only, so it reflows with each word's own width/shape instead
+       of stretching (the box itself is sized by .word-rotate's own width
+       animation, same as before). .word-rotate's color: var(--primary)
+       above is the fallback for browsers without background-clip: text.
+
+       background-image (longhand), NOT the "background" shorthand: Next's
+       build (Lightning CSS) auto-splits modern oklch()/color-mix() colors
+       into a base rule plus an "@supports (color: lab(...))" override that
+       redeclares just this property for browsers with wider color support.
+       If that redeclared property were the "background" SHORTHAND, it
+       would silently reset background-clip (and everything else the
+       shorthand doesn't mention) back to its initial border-box in any
+       browser where that @supports block fires — which is exactly what
+       happened: the gradient rendered as a solid box because its clip
+       mode got reset. Using the longhand means that auto-generated
+       override only ever touches background-image. */
+    background-image: linear-gradient(
+        90deg,
+        color-mix(in oklch, var(--primary), white 30%),
+        var(--primary),
+        oklch(0.42 0.2 288)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+@supports not (background-clip: text) {
+    .word-rotate__word {
+        background-image: none;
+        color: var(--primary);
+        -webkit-text-fill-color: currentColor;
+    }
+}
+.word-rotate__word--animated {
+    animation: word-rotate-in 0.4s ease;
+}
+@keyframes word-rotate-in {
+    from {
+        opacity: 0;
+        transform: translateY(0.3em);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .word-rotate__word--animated {
+        animation: none;
+    }
+}
+
+
+/* Mascot GIF peeking from behind the fixed word "de" in the headline
+   (Hero.tsx splits titleBefore around it). Anchored to a word that's
+   part of the static title text, not WordRotate's rotating word, so its
+   position stays coherent across every word in the rotation (a rotating
+   word's own width changes per word, which made the old anchor land in
+   the wrong place for shorter words). The anchor span sits above the
+   GIF (z-index: 1 vs 0) so the word's glyphs occlude the part of the
+   GIF directly under the letters while the rest peeks out past its
+   edges. .hero-sec's overflow: hidden (see that rule) still clips it if
+   it would otherwise spill past the hero.
+
+   top/right are 0 (anchored flush to the word's own top-right corner,
+   its containing block — verified .hero-mascot-anchor is the nearest
+   positioned ancestor, not .hero-content) and the actual offset comes
+   from transform: translate(), which is a % of the GIF's OWN box, not
+   the tiny "de" span. That makes it self-scaling: bumping `width` alone
+   keeps the GIF glued to the same corner instead of needing top/right
+   recalculated by hand each time (the previous fixed-px offsets were
+   tuned for one width and drifted outward whenever the width changed). */
+.hero-mascot-anchor {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+.hero-mascot {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 215px;
+    height: auto;
+    z-index: 0;
     pointer-events: none;
-    z-index: -1;
-    mask-image:
-        linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%),
-        linear-gradient(to bottom, transparent 0%, black 15%, black 55%, transparent 100%);
-    mask-composite: intersect;
-    -webkit-mask-image:
-        linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%),
-        linear-gradient(to bottom, transparent 0%, black 15%, black 55%, transparent 100%);
-    -webkit-mask-composite: source-in;
+    user-select: none;
+    transform: translate(48%, -54%) rotate(20deg);
+    transform-origin: center center;
 }
-.hero-bars {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
-}
-.hero-bar {
-    flex: 0 0 2px;
-    width: 2px;
-    border-radius: 1px 1px 0 0;
-    background: linear-gradient(to top, var(--primary), transparent);
+@media (max-width: 992px) {
+    .hero-mascot {
+        width: 160px;
+    }
 }
 @media (max-width: 576px) {
-    .hero-bars-wrap {
-        height: 360px;
-    }
-}
-
-.hero-video-placeholder {
-    width: min(1140px, 90%);
-    margin: 56px auto 0;
-    background: var(--bg-color3);
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-}
-@media (max-width: 767px) {
-    .hero-video-placeholder {
+    .hero-mascot {
         display: none;
     }
-}
-
-.hero-video-placeholder__chrome {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 14px 18px;
-    background: var(--white-color);
-    border-bottom: 1px solid var(--border-color);
-    border-radius: 20px 20px 0 0;
-}
-.hero-video-placeholder__dot {
-    width: 11px;
-    height: 11px;
-    border-radius: 50%;
-    background: var(--border-color);
 }
 
 .hero-cta-group {
@@ -342,6 +461,21 @@ img.site-logo--footer {
 @media (max-width: 576px) {
   .main-sec--home .hero-sec {
     padding-top: 32px;
+  }
+}
+
+/* Now that HeroBars and ProductShowcase are gone, the Hero ends right
+   after the CTAs with no visual content below it — the shared
+   .space-md-bottom (100px / 50px below 992px) stacked on top of
+   #how-it-works's own .space top padding (120px / 80px) left ~220px /
+   130px of pure empty space between the buttons and the next heading.
+   Scoped to the home page only, like .hero-sec above. */
+.main-sec--home.space-md-bottom {
+  padding-bottom: 48px;
+}
+@media (max-width: 992px) {
+  .main-sec--home.space-md-bottom {
+    padding-bottom: 32px;
   }
 }
 
@@ -475,12 +609,25 @@ img.site-logo--footer {
   line-height: 38px;
   padding: 0 18px;
   font-size: 15px;
-  border-radius: 100px;
+  border-radius: var(--radius-md);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
   flex-shrink: 0;
+}
+
+/* style.css's .header-btn .btn-style1.v3 sets its own height/line-height
+   (42px) at higher specificity (3 classes) than .btn-style1.no-icon (2
+   classes), so "Assinar agora" (no-icon + v3) rendered taller than
+   "Entrar" (no-icon + outline, which v3's rule doesn't touch). Reassert
+   no-icon's box model at matching specificity so both header CTAs stay
+   the same size — v3's color/hover styling is untouched. Scoped to
+   .header-btn so it doesn't reach onepage's header, which uses v3
+   without .no-icon. */
+.header-btn .btn-style1.no-icon {
+  height: 38px;
+  line-height: 38px;
 }
 
 /* Cookie consent banner: fixed bottom-left card, same radius/shadow

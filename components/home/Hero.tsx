@@ -1,14 +1,26 @@
 "use client";
 
-import Image from "next/image";
 // import { useEffect, useState, type FormEvent } from "react";
-import HeroBars from "@/components/home/HeroBars";
+import WordRotate from "@/components/common/WordRotate";
+import { Spotlight } from "@/components/ui/spotlight";
+import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { homeHeroData } from "@/data/homeHero";
 
 // type DemoRequestStatus = "idle" | "loading" | "success" | "error";
 
+const MASCOT_ANCHOR_WORD = /\bde\b/;
+
 export default function Hero() {
-  const { title, description } = homeHeroData;
+  const { titleBefore, rotatingWords, titleAfter, description } = homeHeroData;
+  const anchorMatch = titleBefore.match(MASCOT_ANCHOR_WORD);
+  const titleBeforeStart = anchorMatch
+    ? titleBefore.slice(0, anchorMatch.index)
+    : titleBefore;
+  const titleBeforeAnchor = anchorMatch ? anchorMatch[0] : null;
+  const titleBeforeEnd =
+    anchorMatch && anchorMatch.index !== undefined
+      ? titleBefore.slice(anchorMatch.index + anchorMatch[0].length)
+      : "";
   // Formulário de contato removido temporariamente, manter para uso futuro
   // const [email, setEmail] = useState("");
   // const [status, setStatus] = useState<DemoRequestStatus>("idle");
@@ -54,17 +66,34 @@ export default function Hero() {
 
   return (
     <div className="hero-sec">
+      <Spotlight
+        className="-top-40 left-0 md:-top-20 md:left-60"
+        fill="#6c33ff"
+      />
       <div className="carousel-container">
         <div className="hero-info">
           <div className="hero-content">
-            <HeroBars />
             <h3
               className="title"
               data-aos="zoom-in"
               data-aos-duration={900}
               data-aos-delay={200}
             >
-              {title}
+              {titleBeforeStart}
+              {titleBeforeAnchor ? (
+                <span className="hero-mascot-anchor">
+                  {titleBeforeAnchor}
+                  <img
+                    src="/assets/gif/bloub-flow-cycle.gif"
+                    alt=""
+                    aria-hidden="true"
+                    className="hero-mascot"
+                  />
+                </span>
+              ) : null}
+              {titleBeforeEnd}
+              <WordRotate words={rotatingWords} />
+              {titleAfter}
             </h3>
             <p data-aos="fade-up" data-aos-duration={900} data-aos-delay={300}>
               {description}
@@ -84,31 +113,17 @@ export default function Hero() {
               >
                 Falar com vendas
               </a>
-              <a
+              <MovingBorderButton
+                as="a"
                 href="https://app.divisionflow.com/checkout?plan=flow"
-                className="btn-style1 no-icon"
+                borderRadius="var(--radius-md)"
+                duration={3500}
+                containerClassName="inline-flex h-auto w-auto items-center p-[3px] cta-moving-border-link"
+                borderClassName="h-11 w-11 opacity-90 cta-moving-border-glow"
+                className="cta-moving-border h-[38px] w-auto border-0 bg-[var(--primary)] px-[18px] text-[15px] font-semibold text-white antialiased backdrop-blur-none"
               >
                 Assinar agora
-              </a>
-            </div>
-
-            <div
-              className="hero-video-placeholder"
-              style={{ overflow: "hidden" }}
-            >
-              <div className="hero-video-placeholder__chrome" aria-hidden="true">
-                <span className="hero-video-placeholder__dot" />
-                <span className="hero-video-placeholder__dot" />
-                <span className="hero-video-placeholder__dot" />
-              </div>
-              <Image
-                src="/assets/images/feature/dashboard-divflow.png"
-                alt="Dashboard da Division Flow"
-                width={2932}
-                height={1540}
-                style={{ width: "100%", height: "auto", display: "block" }}
-                priority
-              />
+              </MovingBorderButton>
             </div>
 
             {/* Formulário de contato removido temporariamente, manter para uso futuro

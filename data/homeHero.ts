@@ -1,5 +1,7 @@
 export type HomeHeroData = {
-  title: string;
+  titleBefore: string;
+  rotatingWords: string[];
+  titleAfter: string;
   description: string;
   form: {
     placeholder: string;
@@ -28,9 +30,11 @@ export type HomeHeroData = {
 };
 
 export const homeHeroData: HomeHeroData = {
-  title: "Chega de planilha e WhatsApp. Tudo num só lugar.",
+  titleBefore: "O CRM simples pra quem cansou de gerenciar leads no ",
+  rotatingWords: ["Excel", "WhatsApp", "e-mail", "papel"],
+  titleAfter: "",
   description:
-    "Contatos, propostas, contratos e projetos — tudo num CRM simples, sem planilha e sem perder cliente no WhatsApp.",
+    "Contatos, propostas, contratos e projetos. Do primeiro contato ao pós-venda, tudo num CRM simples, sem planilha e sem perder cliente no WhatsApp.",
   form: {
     placeholder: "Digite seu e-mail corporativo",
     buttonText: "Solicitar uma Demo",

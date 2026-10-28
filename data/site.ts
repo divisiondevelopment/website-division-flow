@@ -1,14 +1,14 @@
 /** Dados de SEO / branding compartilhados — use em `app/layout.tsx` e metadados de página para evitar inconsistências. */
 export const SITE_NAME =
-  "Division Flow - CRM Completo para Equipes de Alta Performance";
+  "Division Flow. O CRM simples pra quem cansou de gerenciar leads no WhatsApp.";
 
 /** Título padrão completo quando uma rota não define o seu próprio. */
 export const SITE_TITLE_DEFAULT =
-  "Division Flow - CRM Completo para Equipes de Alta Performance";
+  "O CRM simples pra quem cansou de gerenciar leads no WhatsApp | Division Flow";
 
 /** Meta descrição padrão do site. */
 export const SITE_DESCRIPTION =
-  "Division Flow é um CRM completo pronto para produção, construído para equipes de vendas, startups e empresas em crescimento. Automatize follow-ups, gerencie pipelines e tome decisões baseadas em dados — tudo em uma única plataforma.";
+  "Division Flow é o CRM e gestão de projetos pra pequenas empresas e freelancers que cansaram de planilha, papel e WhatsApp. Simples, sem curso e sem equipe de TI.";
 
 /** Sufixo curto para `title.template` (evita repetir o tagline completo em cada aba). */
 export const SITE_TITLE_TEMPLATE_SUFFIX = SITE_NAME;

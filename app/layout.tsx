@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "aos/dist/aos.css";
 import "../public/assets/css/style.css";
 import "../public/assets/css/custom.css";
+import "./globals.css";
 import AOSInit from "@/components/common/AOSInit";
 import BootstrapInit from "@/components/common/BootstrapInit";
 import { MobileMenuProvider } from "@/components/header/MobileMenuProvider";
@@ -50,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
+    <html lang="pt-BR" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <body className="main-home">
         <div className="wrapper">
           <Suspense fallback={null}>

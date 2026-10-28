@@ -1,6 +1,6 @@
 export const callToActionContent = {
   subTitle: "Pronto para começar?",
-  title: "Comece a Organizar Seu Negócio Hoje",
+  title: "Sem recurso que ninguém usa. Sem curso pra aprender a mexer.",
   description: "Chega de perder tempo (e clientes) entre planilha e WhatsApp.",
   buttonText: "Começar Agora",
   buttonHref: "#",

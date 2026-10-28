@@ -32,8 +32,8 @@ export default function Footer() {
                   </div>
 
                   <p>
-                    Plataforma SaaS desenvolvida para simplificar seu fluxo de
-                    trabalho e automatizar tarefas do dia a dia.
+                    Gestão em fluxo, pra quem ainda usa papel, Excel e
+                    WhatsApp.
                   </p>
                 </div>
               </div>
