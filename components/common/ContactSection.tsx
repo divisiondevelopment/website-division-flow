@@ -32,7 +32,7 @@ export default function ContactSection() {
                 data-aos-duration={900}
                 data-aos-delay={300}
               >
-                <h3 className="help-line">
+                <p className="help-line">
                   <Image
                     src="/assets/images/icon/contact1-1.svg"
                     alt="Ícone de contato"
@@ -40,7 +40,7 @@ export default function ContactSection() {
                     height={30}
                   />
                   Precisa de Ajuda?
-                </h3>
+                </p>
                 <DataLink
                   href="mailto:contato@divisiondev.com.br"
                   title=""

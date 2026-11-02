@@ -90,7 +90,7 @@ export default function HowItWorks() {
         <div className="relative z-10 grid grid-cols-1 items-center gap-6 px-6 py-14 md:grid-cols-2 md:gap-10 md:px-14 md:py-20 md:min-h-[420px]">
           <div>
             <h2
-              className="title mb-4 text-4xl font-bold leading-tight md:text-5xl"
+              className="title mb-4 !text-4xl font-bold leading-tight md:!text-5xl"
               style={{ color: "#fff" }}
             >
               Do primeiro contato ao pós-venda, sem perder o fio
@@ -110,15 +110,19 @@ export default function HowItWorks() {
             </DataLink>
           </div>
 
-          {/* Mobile: a contained, rounded box in normal flow. Desktop
-              (md+): the image breaks out of this grid cell's own padding
+          {/* Mobile: hidden — card reads as a compact CTA banner (title,
+              paragraph, button) with no photo. Desktop (md+): the image
+              breaks out of this grid cell's own padding
               (absolute positioning offsets from a positioned ancestor's
               padding box ignore that ancestor's own padding) and bleeds
               all the way to the banner's real top/bottom/right edges,
               clipped cleanly by the banner's own overflow-hidden + rounded
-              corners. */}
+              corners. hidden md:block: display:none removes it from the
+              grid entirely below md (grid-cols-1 there), so the single
+              remaining item fills the one column with no leftover gap
+              or empty second row — not just a visibility toggle. */}
           <div
-            className="relative max-md:mt-2 aspect-[4/3] w-full overflow-hidden rounded-3xl md:absolute md:inset-y-0 md:right-0 md:aspect-auto md:w-[38%] md:rounded-none"
+            className="hidden md:block relative max-md:mt-2 aspect-[4/3] w-full overflow-hidden rounded-3xl md:absolute md:inset-y-0 md:right-0 md:aspect-auto md:w-[38%] md:rounded-none"
             aria-hidden="true"
           >
             <Image

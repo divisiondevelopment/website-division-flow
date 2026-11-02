@@ -96,6 +96,26 @@ Version: 1.0.0
   --icon-font: "Font Awesome 5 Pro";
   --flaticon: "Flaticon";
   --ripple-ani-duration: 5s;
+  /* Section horizontal gutter, shared by .carousel-container (the content
+     padding used by every home section: hero, Como Funciona, Preços,
+     Contato, Footer) and the header's .container-fluid (custom.css),
+     which previously used an unrelated hardcoded 40px. Desktop (≥992px)
+     keeps .carousel-container's original 15px unchanged — no complaint
+     there; only mobile/tablet get more breathing room. Non-overlapping
+     min/max ranges below (not stacked max-width blocks), the same fix
+     applied earlier this session to .hero-content .title and
+     .sec-title .title, to avoid the same cascade-leak bug. */
+  --section-px: 15px;
+}
+@media (max-width: 576px) {
+  :root {
+    --section-px: 20px;
+  }
+}
+@media (min-width: 577px) and (max-width: 991px) {
+  :root {
+    --section-px: 24px;
+  }
 }
 
 .home-five {
@@ -417,7 +437,7 @@ h6 {
 .carousel-container {
   max-width: 1310px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 var(--section-px);
   overflow: unset;
 }
 
@@ -1301,32 +1321,27 @@ h6 {
   color: var(--title-color);
   letter-spacing: -0.03em;
   margin: 0 0 24px;
-  /* Large devices */
 }
-@media (max-width: 1199px) {
+/* Same 2-tier rewrite as .hero-content .title (custom.css), aligned to
+   Tailwind's own md/lg breakpoints (768px/1024px) instead of the old
+   1199/767/416px overlapping max-width blocks, which left this heading
+   (shared by Pricing, Contact, and CallToAction's .sec-title .title) at
+   26px/38px on mobile/tablet — below the site's H2 tier (36/48/48). The
+   768-1023px tier duplicates the base rule's 48px/58px on purpose: same
+   value as desktop by design (not a gap left to fill), kept explicit so a
+   future change to the base/desktop size doesn't silently change this
+   tier too. */
+@media (min-width: 768px) and (max-width: 1023px) {
   .sec-title .title {
-    font-size: 38px;
-    line-height: 48px;
+    font-size: 48px;
+    line-height: 58px;
   }
-}
-.sec-title .title {
-  /* Small devices */
 }
 @media (max-width: 767px) {
   .sec-title .title {
-    font-size: 31px;
-    line-height: 42px;
+    font-size: 36px;
+    line-height: 47px;
     margin-bottom: 14px;
-  }
-}
-.sec-title .title {
-  /* Extra small devices */
-}
-@media (max-width: 416px) {
-  .sec-title .title {
-    font-size: 26px;
-    line-height: 36px;
-    margin-bottom: 12px;
   }
 }
 .sec-title p {
@@ -3136,14 +3151,25 @@ h6 {
   margin-bottom: 30px;
 }
 .pricing-card .title {
-  font-size: 24px;
-  line-height: 34px;
+  font-size: 30px;
+  line-height: 42px;
   margin-bottom: 11px;
   font-weight: 600;
 }
-@media (max-width: 576px) {
+/* H3 tier of the site's global type scale (22/26/30), aligned to
+   Tailwind's md/lg breakpoints like .hero-content .title and
+   .sec-title .title — replaces the old single ≤576px override, which
+   left this at 20px/24px (base/mobile), below the H3 tier at every
+   width. */
+@media (min-width: 768px) and (max-width: 1023px) {
   .pricing-card .title {
-    font-size: 20px;
+    font-size: 26px;
+    line-height: 36px;
+  }
+}
+@media (max-width: 767px) {
+  .pricing-card .title {
+    font-size: 22px;
     line-height: 30px;
   }
 }

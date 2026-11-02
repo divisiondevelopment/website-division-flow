@@ -85,6 +85,14 @@ export default function FaqChatWidget() {
       </button>
 
       {open && (
+        <div
+          className="faq-chat-widget__overlay"
+          onClick={handleClose}
+          aria-hidden="true"
+        />
+      )}
+
+      {open && (
         <div className="faq-chat-widget__panel" role="dialog" aria-label="Perguntas frequentes">
           <div className="faq-chat-widget__header">
             <span className="faq-chat-widget__title">{SITE_NAME.split(" - ")[0]}</span>

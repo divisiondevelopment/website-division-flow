@@ -355,28 +355,23 @@ body.active .dropdown-menu li a:hover {
     font-size: 56px;
     line-height: 64px;
 }
-@media (max-width: 1201px) {
+/* Breakpoints aligned to Tailwind's defaults (md: 768px, lg: 1024px — see
+   node_modules/tailwindcss/theme.css), matching HowItWorks.tsx's H2 so the
+   two headings scale together and H1 stays bigger than H2 at every width,
+   instead of the previous 4 overlapping max-width breakpoints (576/
+   992/1199/1201px) that didn't line up with the H2's own 768px jump and
+   left H1 smaller than H2 from 0 up to 1201px. Non-overlapping ranges
+   (min-width + max-width), so only one block ever applies at a time. */
+@media (min-width: 768px) and (max-width: 1023px) {
     .hero-content .title {
-        font-size: 47px;
-        line-height: 55px;
+        font-size: 52px;
+        line-height: 64px;
     }
 }
-@media (max-width: 1199px) {
+@media (max-width: 767px) {
     .hero-content .title {
         font-size: 40px;
-        line-height: 49px;
-    }
-}
-@media (max-width: 992px) {
-    .hero-content .title {
-        font-size: 36px;
-        line-height: 44px;
-    }
-}
-@media (max-width: 576px) {
-    .hero-content .title {
-        font-size: 29px;
-        line-height: 36px;
+        line-height: 50px;
     }
 }
 
@@ -398,8 +393,8 @@ body.active .dropdown-menu li a:hover {
 }
 @media (max-width: 576px) {
     .hero-content p {
-        font-size: 13px;
-        line-height: 21px;
+        font-size: 16px;
+        line-height: 26px;
     }
 }
 
@@ -446,21 +441,36 @@ img.site-logo--footer {
    app/onepage-landing/page.tsx's header is still position: fixed and
    genuinely needs the original padding to clear it. */
 .main-sec--home .hero-sec {
-  padding-top: 64px;
+  padding-top: 88px;
 }
 @media (max-width: 1199px) {
   .main-sec--home .hero-sec {
-    padding-top: 48px;
+    padding-top: 72px;
   }
 }
 @media (max-width: 992px) {
   .main-sec--home .hero-sec {
-    padding-top: 40px;
+    padding-top: 64px;
   }
 }
 @media (max-width: 576px) {
   .main-sec--home .hero-sec {
-    padding-top: 32px;
+    /* With min-height removed below, the box tracks its content's height,
+       so justify-content has no extra space left to distribute — this is
+       now a harmless no-op, kept only so a future min-height/height
+       change at this breakpoint doesn't silently reintroduce the
+       top-heavy centering measured earlier (236px/236px split) instead of
+       pinning to the top like every other breakpoint already visually
+       does once there's no leftover space. Overrides the base rule's
+       justify-content: center (custom.css:9-14), which still applies as
+       the real behavior at 992px/1199px/base. */
+    justify-content: flex-start;
+    /* Modest breathing room below the sticky header, replacing the
+       centering that no longer does this job at this breakpoint. Smaller
+       than the 992px block's 64px (which still applies under min-height:
+       auto there) is wrong for scale — picked 64px, the next step above
+       the removed 32px and still below desktop's 88px. */
+    padding-top: 64px;
   }
 }
 
@@ -548,7 +558,7 @@ img.site-logo--footer {
    .container-fluid selector, so other sections' .container-fluid are
    unaffected. */
 .header-main .container-fluid {
-  padding: 0 40px;
+  padding: 0 var(--section-px);
 }
 
 /* style.css's .header-main .row .col-lg-6 width tuning (53%/56%/58.5%/67.5%
@@ -595,7 +605,14 @@ img.site-logo--footer {
   border-color: var(--theme-color);
 }
 @media (max-width: 1199px) {
-  .btn-style1.outline {
+  /* Scoped to .header-btn (not bare .btn-style1.outline): .hero-cta-group's
+     "Falar com vendas" and .cookie-consent__actions's "Rejeitar" share the
+     exact same btn-style1 no-icon outline classes and must stay visible on
+     mobile, so hiding needs .header-btn's context to single out the header
+     login button. Also beats .btn-style1.no-icon's unscoped display:
+     inline-flex (same file, below) on specificity (4 classes vs 2) instead
+     of relying on source order. */
+  .header-btn .btn-style1.no-icon.outline {
     display: none;
   }
 }
@@ -663,6 +680,41 @@ img.site-logo--footer {
   flex: 1;
 }
 
+/* Mobile: the fixed-width calc() above (min(360px, 100vw-40px)) stretches
+   the card wide enough to collide with .faq-chat-widget__button (bottom:
+   24px, right:24px, 56px wide — see below) and to sit flush against the
+   screen edges, as shown in the mobile screenshot. Tighten the side
+   insets, drop the width calc in favor of symmetric left/right insets,
+   trim the internal padding/text size to shrink the card's height, and
+   lift it above the FAQ button using the same 96px clearance the FAQ
+   panel already reserves for itself below (.faq-chat-widget__panel's own
+   `bottom: 96px`, which exists for the same reason, below). */
+@media (max-width: 576px) {
+  .cookie-consent {
+    left: 16px;
+    right: 16px;
+    bottom: 96px;
+    width: auto;
+    /* Height trimmed (16→10px padding, text line-height/margin tightened
+       below) instead of moving `bottom`: this card's bottom edge is
+       anchored by `bottom`, independent of height, so it stays exactly
+       96px up — preserving the 16px clearance already calibrated against
+       .faq-chat-widget__button (bottom:24px + 56px tall, below) — only
+       trimming the TOP of the card buys clearance from .hero-cta-group
+       above, which custom.css:376-381's H1 fix (29px→40px) pushed down
+       into this card's old height. Measured: card needed to shrink from
+       150px to ≤135px to clear both with ≥16px each; targets 128px for
+       margin against the H1's rotating word changing the title's line
+       count. */
+    padding: 10px;
+  }
+  .cookie-consent__text {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 8px;
+  }
+}
+
 /* FAQ chat widget: floating round button bottom-right (same corner as the
    sonner Toaster, but below it in z-index — see AppToast's offset prop
    for how toasts stay clear of the button) + its chat-style panel. */
@@ -689,6 +741,12 @@ img.site-logo--footer {
 .faq-chat-widget__button:active {
   transform: scale(0.96);
 }
+.faq-chat-widget__overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 997;
+  background: rgba(0, 0, 0, 0.8);
+}
 .faq-chat-widget__panel {
   position: fixed;
   /* Fixed top/bottom bounds (not a vh-based max-height) so the panel's
@@ -712,6 +770,43 @@ img.site-logo--footer {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+/* Mobile: the desktop side-panel sizing above (fixed top/bottom/right
+   clearances + capped width, no left) leaves page content visible on
+   every edge the panel doesn't cover, and nothing dims it since there was
+   no backdrop before (.faq-chat-widget__overlay, above, now fills that
+   gap). Go near-full-screen instead via symmetric inset, overriding every
+   dimension the base rule sets. No env(safe-area-inset-*): grepped the
+   project, nothing else uses it, so there's no existing convention to
+   follow here. */
+/* z-index bumped above .header-main's 999 (style.css) too: the desktop
+   top:130px exists specifically to stay clear of the sticky header
+   instead of outranking it (see that rule's own comment) — fine for a
+   side panel that only covers part of the screen, but a near-full-screen
+   mobile sheet needs to sit above the header like any other full-screen
+   modal, or the header paints over its top edge, as the visual check
+   just confirmed. */
+@media (max-width: 767px) {
+  .faq-chat-widget__overlay {
+    z-index: 999;
+  }
+  .faq-chat-widget__panel {
+    top: 16px;
+    bottom: 16px;
+    right: 16px;
+    left: 16px;
+    width: auto;
+    max-width: none;
+    z-index: 1000;
+  }
+  /* Chat-style anchoring: with the panel now much taller (near full
+     screen instead of the desktop cutout), flex:1's leftover space below
+     a single short welcome message was the empty gap reported — grow
+     from the bottom like a real chat thread instead of leaving it
+     stranded at the top. */
+  .faq-chat-widget__conversation {
+    justify-content: flex-end;
+  }
 }
 .faq-chat-widget__header {
   display: flex;

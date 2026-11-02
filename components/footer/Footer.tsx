@@ -51,7 +51,7 @@ export default function Footer() {
                           data-aos-duration={900}
                           data-aos-delay={column.delay}
                         >
-                          <h2 className="link-title">{column.title}</h2>
+                          <p className="link-title">{column.title}</p>
                           <ul className="footer-links">
                             {column.links.map((link) => (
                               <li key={link.label}>

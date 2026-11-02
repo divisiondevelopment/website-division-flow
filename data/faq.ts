@@ -30,12 +30,6 @@ export const faqItems: FaqItem[] = [
       "Pelo e-mail contato@divisiondev.com.br, pelo telefone +55 51 90203-0290 ou pelo WhatsApp +55 51 9582-9213.",
   },
   {
-    id: "testar-antes",
-    question: "Preciso testar antes de assinar?",
-    answer:
-      "Não há período de teste — a assinatura do Flow ou do Flow Pro é direta, sem etapa de teste grátis.",
-  },
-  {
     id: "forma-pagamento",
     question: "Quais formas de pagamento são aceitas?",
     answer: "Você pode assinar com cartão de crédito ou via PIX, com cobrança mensal.",
